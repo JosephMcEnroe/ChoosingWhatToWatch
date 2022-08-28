@@ -1,5 +1,6 @@
 #Importing Data
 import os
+from random import randint
     
 desktop = os.path.join(os.path.expanduser("~"), "Desktop/Projects/ChoosingWhatToWatch") #importing file
 tvPath = os.path.join(desktop, "tvShow.txt") #importing data for TV shows
@@ -7,7 +8,7 @@ moviePath = os.path.join(desktop, "movies.txt") #importing data for move
 
 #reading tv show file
 t = open(tvPath,"r") #important lesson - open doesn't mean read**
-tvRead = t.read()
+tvRead = t.read() 
 
 #reading for Movie file
 m = open(moviePath, "r")
@@ -31,4 +32,24 @@ def choice():
         while(choice <= 0 or choice >= 3):
             choice = input(menu())
             choice = int(choice)
-choice()
+    return choice
+
+def randomNum(choice):
+    import random 
+    if choice == 1:
+        return(randint(0,len(tvList)-1))
+    elif choice == 2:
+        return(randint(0,len(movieList)-1))
+def printChoice(choice,rand):
+    if choice == 1:
+        print(tvList[rand])
+    elif choice == 2:
+        print(movieList[rand])
+
+
+pick = choice()
+randomChoice = randomNum(pick)
+printChoice(pick,randomChoice)
+
+
+
