@@ -17,7 +17,7 @@ movieRead = m.read()
 #turning files into list
 tvList = list(tvRead.split(","))
 movieList = list(movieRead.split(","))
-
+    
 def menu():
     #prints out menu
     print("\t\tMenu")
@@ -25,13 +25,15 @@ def menu():
     print("2)\tChoose a Random Movie")
     print("3)\tAdd a TV Show to Watch")
     print("4)\tAdd a Movie to Watch")
+    print("5)\tSaved Movie and TV shows")
+    print("6)\tExit Program")
 
 def choice():
     #takes in choice and validates it to see if in range
     while True:
         menu()
         choice = int(input("selection: "))
-        if choice >= 0 and choice <= 3:
+        if choice >= 0 and choice <= 6:
             return choice
 def randomNum(choice):
     #picks a random number based on the list's range
@@ -50,7 +52,7 @@ def addtoList(choice):
         t.write("," + addingList)
     if choice == 4:
         addingList = input("What do you want to add to list(split movies using ','):")
-        m.write(addingList)
+        m.write(","+ addingList)
     else:
         return None
     
@@ -71,11 +73,28 @@ def printChoice(choice,rand):
     elif choice == 2:
         print(movieList[rand])
 
+def printLists(choice):
+    #prints out all the TV shows and Movies Saved
+    if choice == 5:
+        print("TV Shows\n--")
+        for index in tvList:
+            print(index)
+        print("-------------")
+        print("Movies\n--")
+        for index in movieList:
+            print(index)
 
-
-
-pick = choice()
-randomChoice = randomNum(pick)
-addtoList(pick)
-printChoice(pick,randomChoice)
+def main():
+    #main method
+    pick = choice()
+    while pick != 6:
+        randomChoice = randomNum(pick)
+        addtoList(pick)
+        printLists(pick)
+        printChoice(pick,randomChoice)
+        pick = choice()
+    print("Thank You for using my program :D")
+    print("Created by Joseph McEnroe")
+    
+main()
 
