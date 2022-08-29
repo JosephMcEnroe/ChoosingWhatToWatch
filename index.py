@@ -29,7 +29,7 @@ def choice():
     while True:
         menu()
         choice = int(input("selection: "))
-        if choice >= 0 or choice <= 3:
+        if choice >= 0 and choice <= 3:
             return choice
 def randomNum(choice):
     #picks a random number based on the list's range
