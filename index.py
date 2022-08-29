@@ -2,7 +2,7 @@
 import os
 from random import randint
     
-desktop = os.path.join(os.path.expanduser("~"), "Desktop/Projects/ChoosingWhatToWatch") #importing file
+desktop = os.path.join(os.path.expanduser("~"), "Desktop/Projects/ChoosingWhatToWatch") #creating a sort cut
 tvPath = os.path.join(desktop, "tvShow.txt") #importing data for TV shows
 moviePath = os.path.join(desktop, "movies.txt") #importing data for move
 
@@ -26,30 +26,29 @@ def menu():
 
 def choice():
     #takes in choice and validates it to see if in range
-    choice = input(menu())
-    choice = int(choice)
-    if choice <= 0 or choice >= 3:
-        while(choice <= 0 or choice >= 3):
-            choice = input(menu())
-            choice = int(choice)
-    return choice
-
+    while True:
+        menu()
+        choice = int(input("selection: "))
+        if choice >= 0 or choice <= 3:
+            return choice
 def randomNum(choice):
+    #picks a random number based on the list's range
     import random 
     if choice == 1:
         return(randint(0,len(tvList)-1))
     elif choice == 2:
         return(randint(0,len(movieList)-1))
 def printChoice(choice,rand):
+    #prints out choice for the night
     if choice == 1:
         print(tvList[rand])
     elif choice == 2:
         print(movieList[rand])
 
 
+
+
 pick = choice()
 randomChoice = randomNum(pick)
 printChoice(pick,randomChoice)
-
-
 
