@@ -3,14 +3,22 @@ import os
 from random import randint
     
 desktop = os.path.join(os.path.expanduser("~"), "Desktop/Projects/ChoosingWhatToWatch") #creating a sort cut
-tvPath = os.path.join(desktop, "tvShow.txt") #importing data for TV shows
-moviePath = os.path.join(desktop, "movies.txt") #importing data for move
 
 #reading tv show file
-t = open(tvPath,"r+") #important lesson - open doesn't mean read**
+if os.path.exists("Desktop/Projects/ChoosingWhatToWatch/tvShows.txt") == False:
+    tvPath = open("tvShows.txt","x") #creating file if file doesn't exist
+else:
+    tvPath = os.path.join(desktop, "tvShows.txt") #importing data for TV shows
+
+t = open(tvPath,"r") #important lesson - open doesn't mean read**
 tvRead = t.read() 
 
 #reading for Movie file
+if os.path.exists("Desktop/Projects/ChoosingWhatToWatch/tvShows.txt/movies.txt") == False:
+    moviePath = open("movies.txt","x")
+else:
+    moviePath = os.path.join(desktop, "movies.txt") #importing data for move
+
 m = open(moviePath, "r+")
 movieRead = m.read()
 
