@@ -12,6 +12,7 @@ movieRead = m.read()
 #turning files into list
 tvList = list(tvRead.split(","))
 movieList = list(movieRead.split(","))
+tvList = tvList
     
 def menu():
     #prints out menu
@@ -52,8 +53,8 @@ def addtoList(choice):
         return None
 
     tvRead = t.read()
-    #updating list
-    tvList = list(tvRead.split(","))
+    #updating list just 
+    tvList = list(tvRead.split(",")) #just use zip method 
     movieList = list(movieRead.split(","))
     print(tvList)
     print(movieList)
