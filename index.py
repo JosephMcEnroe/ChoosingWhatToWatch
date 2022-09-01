@@ -5,7 +5,7 @@ from random import randint
 t = open("tvShows.txt","a+") #creates, read, and write tvShow.txt
 tvRead = t.read()
 
-m = open("movie", "a+") #creates, read, and write tvShow.txt
+m = open("movies.txt", "a+") #creates, read, and write tvShow.txt
 movieRead = m.read()
 
 
@@ -50,11 +50,8 @@ def addtoList(choice):
         m.write(","+ addingList)
     else:
         return None
-    
-    #updating program
-    tvRead = t.read() 
-    movieRead = m.read()
 
+    tvRead = t.read()
     #updating list
     tvList = list(tvRead.split(","))
     movieList = list(movieRead.split(","))
